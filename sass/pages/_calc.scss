@@ -1,0 +1,25 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.page-calc {
+  .header {
+    @include respond-min(desktop) {
+      position: relative;
+      background-color: $color-bg-dark;
+    }
+  }
+
+  .header__link--current {
+    opacity: 1;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+
+  .calc-page {
+    padding-top: calc($header-height + $space-lg);
+
+    @include respond-min(tablet) {
+      padding-top: calc($header-height + $space-xl);
+    }
+  }
+}

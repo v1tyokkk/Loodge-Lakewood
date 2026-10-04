@@ -1,0 +1,223 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.gallery {
+  &__filters {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 4px;
+    margin-bottom: $space-xs;
+
+    @include respond-between(tablet, desktop) {
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    @include respond-min(desktop) {
+      gap: 20px;
+      margin-bottom: 16px;
+    }
+  }
+
+  &__slider {
+    position: relative;
+    margin-bottom: $space-lg;
+
+    @include respond-min(tablet) {
+      display: flex;
+      align-items: center;
+      gap: $space-sm;
+      margin-bottom: $space-lg;
+    }
+
+    @include respond-min(desktop) {
+      gap: $space-md;
+      margin-bottom: 16px;
+    }
+
+    @include respond-max(tablet) {
+      &:hover,
+      &:focus-within {
+        .gallery__arrow {
+          opacity: 1;
+          pointer-events: auto;
+        }
+      }
+    }
+
+    @include respond-min(tablet) {
+      .gallery__arrow {
+        opacity: 1;
+        pointer-events: auto;
+      }
+    }
+
+    &--animating {
+      .gallery__arrow {
+        pointer-events: none;
+      }
+    }
+  }
+
+  &__viewport {
+    --gallery-column-width: 100%;
+
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  &__track {
+    display: flex;
+    gap: $space-sm;
+    will-change: transform;
+
+    @include respond-min(tablet) {
+      gap: $space-md;
+    }
+
+    @include respond-min(desktop) {
+      gap: 16px;
+    }
+  }
+
+  &__column {
+    display: grid;
+    flex: 0 0 var(--gallery-column-width);
+    gap: $space-sm;
+
+    @include respond-min(tablet) {
+      gap: $space-md;
+    }
+
+    @include respond-min(desktop) {
+      gap: 16px;
+    }
+  }
+
+  &__item {
+    position: relative;
+    aspect-ratio: $gallery-aspect;
+    overflow: hidden;
+    background-color: $color-bg-card;
+
+    @include respond-max(tablet) {
+      aspect-ratio: 1 / 1.05;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__arrow {
+    position: absolute;
+    top: 50%;
+    z-index: 2;
+    flex-shrink: 0;
+    width: 34px;
+    height: 48px;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    color: $color-text-on-dark;
+    opacity: 0;
+    transform: translateY(-50%);
+    transition: opacity 0.28s ease;
+    cursor: pointer;
+    pointer-events: none;
+
+    @include respond-min(tablet) {
+      position: relative;
+      top: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 56px;
+      color: $color-text-on-light;
+      background-color: $color-bg-page;
+      box-shadow: 0 0 0 1px rgba($color-text-on-light, 0.12);
+      transform: none;
+      transition: opacity 0.28s ease, background-color 0.2s ease;
+    }
+
+    @include focus-ring;
+
+    &:hover {
+      @include respond-min(tablet) {
+        background-color: $color-bg-light;
+      }
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      transform: translate(-50%, -50%);
+      border-top: 12px solid transparent;
+      border-bottom: 12px solid transparent;
+
+      @include respond-min(tablet) {
+        position: static;
+        top: auto;
+        left: auto;
+        border-top-width: 14px;
+        border-bottom-width: 14px;
+        transform: none;
+      }
+    }
+
+    &--left {
+      left: 8px;
+
+      @include respond-min(tablet) {
+        left: auto;
+      }
+
+      &::before {
+        border-right: 18px solid currentColor;
+        border-left: none;
+        margin-left: -3px;
+
+        @include respond-min(tablet) {
+          border-right-width: 20px;
+          margin-left: 0;
+        }
+      }
+    }
+
+    &--right {
+      right: 8px;
+
+      @include respond-min(tablet) {
+        right: auto;
+      }
+
+      &::before {
+        border-left: 18px solid currentColor;
+        border-right: none;
+        margin-left: 3px;
+
+        @include respond-min(tablet) {
+          border-left-width: 20px;
+          margin-left: 0;
+        }
+      }
+    }
+  }
+}
+
+.gallery-filter {
+  &--active,
+  &.btn--filter-active {
+    background-color: $color-bg-dark;
+    color: $color-text-on-dark;
+  }
+}

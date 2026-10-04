@@ -1,0 +1,46 @@
+@use "variables" as *;
+
+@mixin respond-min($breakpoint) {
+  @if $breakpoint == tablet {
+    @media (min-width: $bp-tablet) {
+      @content;
+    }
+  } @else if $breakpoint == desktop {
+    @media (min-width: $bp-desktop) {
+      @content;
+    }
+  }
+}
+
+@mixin respond-between($min-bp, $max-bp) {
+  @if $min-bp == tablet and $max-bp == desktop {
+    @media (min-width: $bp-tablet) and (max-width: ($bp-desktop - 1px)) {
+      @content;
+    }
+  }
+}
+
+@mixin respond-max($breakpoint) {
+  @if $breakpoint == tablet {
+    @media (max-width: ($bp-tablet - 1px)) {
+      @content;
+    }
+  } @else if $breakpoint == desktop {
+    @media (max-width: ($bp-desktop - 1px)) {
+      @content;
+    }
+  }
+}
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin focus-ring {
+  &:focus-visible {
+    outline: 2px solid $color-logo-green;
+    outline-offset: 2px;
+  }
+}

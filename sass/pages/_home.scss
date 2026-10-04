@@ -1,0 +1,22 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.page-home {
+  overflow-x: hidden;
+
+  .services.section {
+    padding-bottom: 4px;
+
+    @include respond-min(tablet) {
+      padding-bottom: $space-xs;
+    }
+  }
+
+  .gallery.section {
+    padding-top: 4px;
+
+    @include respond-min(tablet) {
+      padding-top: $space-xs;
+    }
+  }
+}

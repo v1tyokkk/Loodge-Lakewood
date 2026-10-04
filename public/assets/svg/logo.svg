@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none" aria-hidden="true">
+  <circle cx="60" cy="60" r="58" stroke="#2d4a3e" stroke-width="2"/>
+  <path fill="#2d4a3e" d="M60 34 48 68h24L60 34Zm-8 40h16l-4 10H56l-4-10Z"/>
+  <path stroke="#2d4a3e" stroke-width="1.5" d="M28 88c10-8 22-12 32-12s22 4 32 12"/>
+  <text fill="#2d4a3e" font-family="Georgia, serif" font-size="9" font-weight="700" letter-spacing="1">
+    <textPath href="#top" startOffset="50%" text-anchor="middle">LAKEWOOD</textPath>
+  </text>
+  <path id="top" fill="none" d="M 20 60 A 40 40 0 0 1 100 60"/>
+</svg>

@@ -1,0 +1,180 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.tariffs {
+  &__grid {
+    display: grid;
+    gap: $space-xl;
+
+    @include respond-min(desktop) {
+      gap: 40px;
+    }
+  }
+}
+
+.package-card {
+  overflow: hidden;
+  background-color: $color-bg-page;
+
+  &__photos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+  }
+
+  &__photo {
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__info {
+    padding: $space-sm $space-sm $space-md;
+    background-color: $color-bg-card;
+    color: $color-text-on-dark;
+
+    @include respond-min(tablet) {
+      padding: $space-lg $space-lg $space-xl;
+    }
+  }
+
+  &__title {
+    margin: 0 0 $space-sm;
+    font-family: $font-family-sans;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.15;
+    text-align: center;
+
+    @include respond-min(tablet) {
+      margin-bottom: $space-lg;
+      font-size: 28px;
+    }
+
+    @include respond-min(desktop) {
+      font-size: 18px;
+    }
+  }
+
+  &__row {
+    display: flex;
+    flex-direction: column;
+    gap: $space-sm;
+    margin-bottom: $space-sm;
+
+    @include respond-min(tablet) {
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: $space-lg;
+      margin-bottom: $space-lg;
+    }
+  }
+
+  &__list {
+    display: grid;
+    gap: 2px;
+    flex: 1;
+    font-size: 11px;
+    line-height: 1.25;
+    color: $color-text-muted-dark;
+
+    @include respond-min(tablet) {
+      gap: 6px;
+      font-size: 16px;
+      line-height: 1.25;
+    }
+
+    @include respond-min(desktop) {
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    li {
+      padding-left: 0.5em;
+      text-indent: -0.5em;
+    }
+  }
+
+  &__pricing {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+    flex-shrink: 0;
+
+    @include respond-max(tablet) {
+      align-items: flex-start;
+    }
+  }
+
+  &__old {
+    font-size: 14px;
+    text-decoration: line-through;
+    color: $color-text-muted-dark;
+
+    @include respond-min(tablet) {
+      font-size: 28px;
+    }
+
+    @include respond-min(desktop) {
+      font-size: 20px;
+    }
+  }
+
+  &__new {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1;
+    color: $color-text-on-dark;
+
+    @include respond-min(tablet) {
+      font-size: 30px;
+    }
+
+    @include respond-min(desktop) {
+      font-size: 32px;
+    }
+  }
+
+  &__btn {
+    display: block;
+    width: 100%;
+    max-width: 220px;
+    margin-inline: auto;
+    padding: 6px 16px;
+    border: none;
+    background-color: $color-btn-light;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-align: center;
+    text-transform: uppercase;
+    color: $color-text-on-light;
+    transition: background-color 0.2s ease;
+
+    @include respond-min(tablet) {
+      max-width: 280px;
+      padding: 8px 24px;
+      font-size: 22px;
+      letter-spacing: 0.04em;
+    }
+
+    @include respond-min(desktop) {
+      padding: 14px 24px;
+      font-size: 12px;
+      letter-spacing: 0.12em;
+    }
+
+    &:hover {
+      background-color: #e0e0e0;
+    }
+
+    @include focus-ring;
+  }
+}

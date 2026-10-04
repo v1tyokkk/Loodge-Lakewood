@@ -1,0 +1,38 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+@use "../abstracts/placeholders" as *;
+
+.container {
+  width: 100%;
+  max-width: $container-max;
+  margin-inline: auto;
+  padding-inline: $container-padding-mobile;
+
+  @include respond-min(tablet) {
+    padding-inline: $container-padding-tablet;
+  }
+
+  @include respond-min(desktop) {
+    padding-inline: $container-padding-desktop;
+  }
+}
+
+.section {
+  padding-block: $space-lg;
+
+  @include respond-min(tablet) {
+    padding-block: $space-2xl;
+  }
+
+  @include respond-min(desktop) {
+    padding-block: $space-3xl;
+  }
+
+  &--light {
+    background-color: $color-bg-page;
+  }
+}
+
+.section-title {
+  @extend %section-title-light;
+}

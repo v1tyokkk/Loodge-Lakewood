@@ -1,0 +1,289 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+@use "../abstracts/placeholders" as *;
+
+$side-nav-bg: #f5f5f5;
+$side-nav-transition: 0.35s ease;
+
+// Скрытый переключатель (только CSS, без JS)
+.nav-toggle {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+
+  &:checked ~ .nav-backdrop {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &:checked ~ .header {
+    @include respond-max(tablet) {
+      z-index: 160;
+      background-color: transparent;
+    }
+
+    .header__nav {
+      transform: translateX(0);
+    }
+
+    .header__burger-line {
+      background-color: $color-text-on-light;
+      transform-origin: center;
+
+      &:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+      }
+
+      &:nth-child(2) {
+        opacity: 0;
+        transform: scaleX(0);
+      }
+
+      &:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+      }
+    }
+  }
+}
+
+.nav-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 150;
+  background-color: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity $side-nav-transition, visibility $side-nav-transition;
+  cursor: pointer;
+
+  @include respond-min(tablet) {
+    display: none;
+  }
+}
+
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background-color: $color-bg-dark;
+
+  @include respond-max(tablet) {
+    position: fixed;
+    background-color: $color-bg-dark;
+  }
+
+  @include respond-between(tablet, desktop) {
+    background-color: $color-bg-dark;
+  }
+
+  @include respond-min(desktop) {
+    position: absolute;
+    background-color: transparent;
+  }
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: $space-md;
+    max-width: $container-max;
+    min-height: $header-height;
+    margin-inline: auto;
+    padding-inline: $container-padding-mobile;
+
+    @include respond-min(tablet) {
+      padding-inline: $container-padding-tablet;
+    }
+
+    @include respond-min(desktop) {
+      padding-inline: $container-padding-desktop;
+    }
+  }
+
+  &__logo {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    background-color: $color-text-on-dark;
+
+    &-img {
+      width: 44px;
+      height: 44px;
+      object-fit: contain;
+    }
+  }
+
+  &__burger {
+    @extend %btn-reset;
+    position: relative;
+    z-index: 210;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    width: 44px;
+    height: 44px;
+    margin-left: auto;
+    padding: 10px;
+    cursor: pointer;
+
+    @include respond-max(tablet) {
+      display: flex;
+    }
+
+    @include focus-ring;
+  }
+
+  &__burger-line {
+    display: block;
+    width: 24px;
+    height: 3px;
+    border-radius: 2px;
+    background-color: $color-text-on-dark;
+    transform-origin: center;
+    transition:
+      transform $side-nav-transition,
+      opacity $side-nav-transition,
+      background-color $side-nav-transition;
+  }
+
+  &__nav {
+    display: none;
+    flex: 1;
+    min-width: 0;
+
+    @include respond-min(tablet) {
+      display: block;
+    }
+
+    @include respond-max(tablet) {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: auto;
+      z-index: 200;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 80%;
+      max-width: 80%;
+      padding: calc($header-height + $space-lg) $container-padding-mobile $space-3xl;
+      background-color: $side-nav-bg;
+      transform: translateX(100%);
+      transition: transform $side-nav-transition;
+      overflow-y: auto;
+    }
+  }
+
+  &__menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 4px 8px;
+
+    @include respond-min(tablet) {
+      gap: 6px 12px;
+    }
+
+    @include respond-min(desktop) {
+      gap: $space-md $space-xl;
+    }
+
+    @include respond-max(tablet) {
+      flex-direction: column;
+      flex-wrap: nowrap;
+      align-items: flex-start;
+      justify-content: flex-start;
+      gap: 0;
+      width: 100%;
+    }
+  }
+
+  &__item {
+    @include respond-max(tablet) {
+      width: 100%;
+    }
+  }
+
+  &__link {
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: $color-text-on-dark;
+    transition: opacity 0.2s ease;
+
+    @include respond-min(tablet) {
+      font-size: 10px;
+      letter-spacing: 0.08em;
+    }
+
+    @include respond-min(desktop) {
+      font-size: 12px;
+      letter-spacing: 0.1em;
+    }
+
+    @include respond-max(tablet) {
+      display: block;
+      padding-block: 14px;
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      line-height: 1.2;
+      color: $color-text-on-light;
+
+      &::before {
+        content: "– ";
+      }
+    }
+
+    &:hover,
+    &:focus-visible {
+      opacity: 0.75;
+
+      @include respond-max(tablet) {
+        opacity: 1;
+      }
+    }
+
+    @include focus-ring;
+  }
+
+  &__drawer-logo {
+    display: none;
+
+    @include respond-max(tablet) {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      margin-top: auto;
+      padding-top: $space-2xl;
+    }
+  }
+
+  &__drawer-logo-img {
+    width: 160px;
+    height: 160px;
+    object-fit: contain;
+
+    @include respond-min(tablet) {
+      width: 120px;
+      height: 120px;
+    }
+  }
+
+  &__cta {
+    display: none;
+  }
+}

@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Lakewood Lodge — загородный комплекс отдыха на берегу озера">
+  <title>Lakewood Lodge</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body class="page-home">
+  <input class="nav-toggle" type="checkbox" id="nav-toggle" aria-hidden="true">
+
+  <header class="header">
+    <div class="header__inner">
+      <a class="header__logo" href="index.html#hero" aria-label="Lakewood Lodge — на главную">
+        <img class="header__logo-img" src="assets/svg/logo.svg" width="44" height="44" alt="">
+      </a>
+
+      <label class="header__burger" for="nav-toggle">
+        <span class="header__burger-line" aria-hidden="true"></span>
+        <span class="header__burger-line" aria-hidden="true"></span>
+        <span class="header__burger-line" aria-hidden="true"></span>
+        <span class="visually-hidden">Открыть меню</span>
+      </label>
+
+      <nav class="header__nav" aria-label="Основная навигация">
+        <ul class="header__menu">
+          <li class="header__item"><a class="header__link" href="index.html#hotel">Отель</a></li>
+          <li class="header__item"><a class="header__link" href="index.html#spa">Спа</a></li>
+          <li class="header__item"><a class="header__link" href="index.html#services">Услуги</a></li>
+          <li class="header__item"><a class="header__link" href="index.html#leisure">Досуг</a></li>
+          <li class="header__item"><a class="header__link" href="index.html#about">О нас</a></li>
+          <li class="header__item"><a class="header__link" href="calc.html">Калькулятор</a></li>
+          <li class="header__item"><a class="header__link" href="index.html#contacts">Контакты</a></li>
+        </ul>
+        <div class="header__drawer-logo">
+          <img class="header__drawer-logo-img" src="assets/svg/logo.svg" width="160" height="160" alt="Lakewood Lodge">
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <label class="nav-backdrop" for="nav-toggle">
+    <span class="visually-hidden">Закрыть меню</span>
+  </label>
+
+  <main>
+    <section class="hero" id="hero">
+      <div class="hero__content">
+        <h1 class="hero__brand">
+          <span class="hero__brand-line">Lodge</span>
+          <span class="hero__brand-line">Lakewood</span>
+        </h1>
+        <p class="hero__tagline">тишина и уют в одной ноте</p>
+      </div>
+    </section>
+
+    <section class="section section--light services" id="services">
+      <div class="container">
+        <span id="about" class="visually-hidden">О нас</span>
+        <h2 class="section-title">Наши услуги</h2>
+        <div class="services__grid">
+          <article class="service-card" id="hotel">
+            <div class="service-card__media">
+              <img src="assets/png/room.png" width="327" height="218" alt="Проживание в номере">
+            </div>
+            <div class="service-card__body">
+              <div class="service-card__head">
+                <div class="service-card__icon" aria-hidden="true">
+                  <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M4 14 16 6l12 8v12H4V14Z"/>
+                    <path d="M12 26v-8h8v8"/>
+                  </svg>
+                </div>
+                <h3 class="service-card__title">Проживание в номере</h3>
+              </div>
+              <p class="service-card__text">
+                Комфортабельные номера премиум-класса с панорамным видом на озеро и лес.
+              </p>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <div class="service-card__media">
+              <img src="assets/png/restourant.png" width="327" height="218" alt="Ресторан">
+            </div>
+            <div class="service-card__body">
+              <div class="service-card__head">
+                <div class="service-card__icon" aria-hidden="true">
+                  <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M8 12h16v14H8z"/>
+                    <path d="M12 8c0-2 2-4 4-4s4 2 4 4"/>
+                  </svg>
+                </div>
+                <h3 class="service-card__title">Ресторан</h3>
+              </div>
+              <p class="service-card__text">
+                Изысканная кухня из сезонных продуктов и уютная атмосфера с видом на природу.
+              </p>
+            </div>
+          </article>
+
+          <article class="service-card" id="leisure">
+            <div class="service-card__media">
+              <img src="assets/png/quadro.png" width="327" height="218" alt="Прогулки на квадроциклах">
+            </div>
+            <div class="service-card__body">
+              <div class="service-card__head">
+                <div class="service-card__icon" aria-hidden="true">
+                  <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <circle cx="8" cy="22" r="3"/>
+                    <circle cx="24" cy="22" r="3"/>
+                    <path d="M11 22h10M14 14h4l2 8"/>
+                  </svg>
+                </div>
+                <h3 class="service-card__title">Прогулки на квадроциклах</h3>
+              </div>
+              <p class="service-card__text">
+                Прогулки по лесным маршрутам с инструктором — для новичков и опытных райдеров.
+              </p>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <div class="service-card__media">
+              <img src="assets/png/velo.png" width="327" height="218" alt="Веломаршрут по лесу">
+            </div>
+            <div class="service-card__body">
+              <div class="service-card__head">
+                <div class="service-card__icon" aria-hidden="true">
+                  <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M6 26V10l4-4 4 4v16"/>
+                    <path d="M18 26V6l4-4 4 4v20"/>
+                  </svg>
+                </div>
+                <h3 class="service-card__title">Веломаршрут по лесу</h3>
+              </div>
+              <p class="service-card__text">
+                Размеченные трассы разной сложности вдоль озера и через хвойный лес.
+              </p>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <div class="service-card__media">
+              <img src="assets/png/kanoe.png" width="327" height="218" alt="Сплавы на каноэ">
+            </div>
+            <div class="service-card__body">
+              <div class="service-card__head">
+                <div class="service-card__icon" aria-hidden="true">
+                  <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M4 20h22M8 20V12l8-5 8 5v8"/>
+                  </svg>
+                </div>
+                <h3 class="service-card__title">Сплавы на каноэ</h3>
+              </div>
+              <p class="service-card__text">
+                Идеальный маршрут как для новичков, так и для опытных туристов. Спокойное течение,
+                красивые берега и возможность насладиться природой без лишних сложностей.
+              </p>
+            </div>
+          </article>
+
+          <article class="service-card" id="spa">
+            <div class="service-card__media">
+              <img src="assets/png/sauna.png" width="327" height="218" alt="Сауна">
+            </div>
+            <div class="service-card__body">
+              <div class="service-card__head">
+                <div class="service-card__icon" aria-hidden="true">
+                  <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M10 22c2-6 4-6 6 0M16 22c2-6 4-6 6 0M22 22c2-6 4-6 6 0"/>
+                  </svg>
+                </div>
+                <h3 class="service-card__title">Сауна</h3>
+              </div>
+              <p class="service-card__text">
+                Модульная СПА-сауна с панорамным остеклением и просторной террасой.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--light gallery" id="gallery" aria-label="Галерея">
+      <div class="container">
+        <div class="gallery__filters" role="tablist" aria-label="Категории галереи">
+          <button class="btn btn--filter gallery-filter gallery-filter--active btn--filter-active" type="button" data-category="hotel" aria-pressed="true">Отель</button>
+          <button class="btn btn--filter gallery-filter" type="button" data-category="spa" aria-pressed="false">Спа</button>
+          <button class="btn btn--filter gallery-filter" type="button" data-category="restaurant" aria-pressed="false">Ресторан</button>
+          <button class="btn btn--filter gallery-filter" type="button" data-category="leisure" aria-pressed="false">Досуг</button>
+          <button class="btn btn--filter gallery-filter" type="button" data-category="nature" aria-pressed="false">Природа</button>
+        </div>
+        <div class="gallery__slider">
+          <button class="gallery__arrow gallery__arrow--left" type="button" aria-label="Показать предыдущие фотографии"></button>
+          <div class="gallery__viewport">
+            <div class="gallery__track" aria-live="polite"></div>
+          </div>
+          <button class="gallery__arrow gallery__arrow--right" type="button" aria-label="Показать следующие фотографии"></button>
+        </div>
+        <div class="video-block">
+          <input class="video-block__toggle" type="checkbox" id="lodge-video-toggle">
+          <video
+            class="video-block__video"
+            poster="assets/mp4/video-poster.jpg"
+            autoplay
+            muted
+            playsinline
+            controls
+          >
+            <source src="assets/mp4/video.mp4" type="video/mp4">
+            Ваш браузер не поддерживает воспроизведение видео.
+          </video>
+          <label class="video-block__overlay" for="lodge-video-toggle">
+            <img class="video-block__poster" src="assets/mp4/video-poster.jpg" width="1280" height="720" alt="">
+            <span class="video-block__play" aria-hidden="true"></span>
+          </label>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--light tariffs" id="tariffs">
+      <div class="container">
+        <h2 class="section-title">Выгодные пакеты &laquo;ALL INCLUSIVE&raquo;</h2>
+        <div class="tariffs__grid">
+          <article class="package-card">
+            <div class="package-card__photos">
+              <div class="package-card__photo">
+                <img src="assets/png/room.png" width="200" height="150" alt="">
+              </div>
+              <div class="package-card__photo">
+                <img src="assets/png/restourant.png" width="200" height="150" alt="">
+              </div>
+              <div class="package-card__photo">
+                <img src="assets/png/sauna.png" width="200" height="150" alt="">
+              </div>
+            </div>
+            <div class="package-card__info">
+              <h3 class="package-card__title">Пакет &laquo;Restore&raquo; (на две персоны)</h3>
+              <div class="package-card__row">
+                <ul class="package-card__list">
+                  <li>&mdash; Номер повышенной комфортности с двуспальной кроватью</li>
+                  <li>&mdash; Завтрак «шведский стол»</li>
+                  <li>&mdash; 3 часа услуг Spa</li>
+                </ul>
+                <div class="package-card__pricing">
+                  <span class="package-card__old">315 руб</span>
+                  <span class="package-card__new">250 руб</span>
+                </div>
+              </div>
+              <button class="package-card__btn" type="button">Забронировать</button>
+            </div>
+          </article>
+
+          <article class="package-card">
+            <div class="package-card__photos">
+              <div class="package-card__photo">
+                <img src="assets/png/room.png" width="200" height="150" alt="">
+              </div>
+              <div class="package-card__photo">
+                <img src="assets/png/restourant.png" width="200" height="150" alt="">
+              </div>
+              <div class="package-card__photo">
+                <img src="assets/png/quadro.png" width="200" height="150" alt="">
+              </div>
+            </div>
+            <div class="package-card__info">
+              <h3 class="package-card__title">Пакет &laquo;Morning drive&raquo; (на две персоны)</h3>
+              <div class="package-card__row">
+                <ul class="package-card__list">
+                  <li>&mdash; Номер повышенной комфортности с двуспальной кроватью</li>
+                  <li>&mdash; Завтрак «шведский стол»</li>
+                  <li>&mdash; Квадропрогулка по окрестностям</li>
+                </ul>
+                <div class="package-card__pricing">
+                  <span class="package-card__old">395 руб</span>
+                  <span class="package-card__new">335 руб</span>
+                </div>
+              </div>
+              <button class="package-card__btn" type="button">Забронировать</button>
+            </div>
+          </article>
+
+          <article class="package-card">
+            <div class="package-card__photos">
+              <div class="package-card__photo">
+                <img src="assets/png/quadro.png" width="200" height="150" alt="">
+              </div>
+              <div class="package-card__photo">
+                <img src="assets/png/sauna.png" width="200" height="150" alt="">
+              </div>
+              <div class="package-card__photo">
+                <img src="assets/png/velo.png" width="200" height="150" alt="">
+              </div>
+            </div>
+            <div class="package-card__info">
+              <h3 class="package-card__title">Пакет &laquo;Active Recovery&raquo; (на одну персону)</h3>
+              <div class="package-card__row">
+                <ul class="package-card__list">
+                  <li>&mdash; Квадропрогулка по окрестностям</li>
+                  <li>&mdash; 3 часа услуг Spa</li>
+                  <li>&mdash; Велоэкскурсия</li>
+                </ul>
+                <div class="package-card__pricing">
+                  <span class="package-card__old">235 руб</span>
+                  <span class="package-card__new">175 руб</span>
+                </div>
+              </div>
+              <button class="package-card__btn" type="button">Забронировать</button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-banner" id="booking" aria-label="Связаться и забронировать">
+      <div class="contact-banner__stage">
+        <img class="contact-banner__bg" src="assets/png/1.png" width="1024" height="560" alt="">
+        <div class="contact-banner__overlay" aria-hidden="true"></div>
+        <div class="contact-banner__inner">
+          <form class="contact-widget" id="booking-form" action="#" method="post">
+            <p class="contact-widget__title">Свяжитесь с нами</p>
+            <label class="visually-hidden" for="contact-name">Ваше имя</label>
+            <input
+              class="contact-widget__input contact-widget__input--light"
+              id="contact-name"
+              name="name"
+              type="text"
+              placeholder="Ваше имя"
+              autocomplete="name"
+            >
+            <label class="visually-hidden" for="contact-phone">Телефон или e-mail</label>
+            <input
+              class="contact-widget__input contact-widget__input--dark"
+              id="contact-phone"
+              name="contact"
+              type="text"
+              placeholder="Телефон или e-mail"
+              autocomplete="tel"
+            >
+          </form>
+        </div>
+      </div>
+      <div class="contact-banner__booking">
+        <div class="contact-banner__booking-item">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16"/><path d="M8 3v4M16 3v4M3 10h18"/></svg>
+          <span>Дата заселения</span>
+        </div>
+        <div class="contact-banner__booking-item">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16"/><path d="M8 3v4M16 3v4M3 10h18"/></svg>
+          <span>Дата выселения</span>
+        </div>
+        <div class="contact-banner__booking-item">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3 3-5 6-5s6 2 6 5M16 11h5M18.5 8.5v5"/></svg>
+          <span>Количество гостей</span>
+        </div>
+        <button class="contact-banner__booking-item contact-banner__booking-item--submit" type="submit" form="booking-form">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l18-8-8 18-2-7-8-3Z"/></svg>
+          <span>Отправить данные</span>
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="contacts">
+    <div class="container">
+      <ul class="footer__contacts">
+        <li>Viktar Tsybulskas</li>
+        <li>г. Брест, ул. Рокоссовского, д. 3</li>
+        <li><a class="footer__link" href="tel:+375333105838">+375337777777</a></li>
+        <li>
+          GitHub:
+          <a class="footer__link" href="https://github.com/v1tyokkk" target="_blank" rel="noopener noreferrer">https://github.com/v1tyokkk</a>
+        </li>
+        <li>
+          Figma:
+          <a class="footer__link" href="mailto:mistervictor7777@gmail.com">mistervictor7777@gmail.com</a>
+        </li>
+      </ul>
+      <img class="footer__logo" src="assets/svg/logo.svg" width="120" height="120" alt="Lakewood Lodge">
+    </div>
+  </footer>
+</body>
+</html>

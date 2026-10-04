@@ -1,0 +1,64 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+@use "../abstracts/placeholders" as *;
+
+.booking {
+  @extend %card-surface;
+  padding: $space-lg;
+
+  @include respond-min(tablet) {
+    padding: $space-xl;
+  }
+
+  &__title {
+    @extend %section-title;
+    margin-bottom: $space-lg;
+    font-size: 18px;
+  }
+
+  &__form {
+    display: grid;
+    gap: $space-md;
+  }
+
+  &__field {
+    display: grid;
+    gap: $space-xs;
+  }
+
+  &__label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: $color-text-muted;
+  }
+
+  &__input,
+  &__select {
+    width: 100%;
+    min-height: 44px;
+    padding: 10px 14px;
+    border: 1px solid $color-border;
+    background-color: $color-bg;
+    color: $color-text;
+
+    &::placeholder {
+      color: rgba(255, 255, 255, 0.4);
+    }
+
+    &:focus {
+      outline: none;
+      border-color: $color-text;
+    }
+  }
+
+  &__row {
+    display: grid;
+    gap: $space-md;
+
+    @include respond-min(tablet) {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+}

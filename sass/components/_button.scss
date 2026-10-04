@@ -1,0 +1,54 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+@use "../abstracts/placeholders" as *;
+
+.btn {
+  @extend %btn-reset;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding: 10px 20px;
+  border: none;
+  background-color: $color-bg-card;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: $color-text-on-dark;
+  transition: background-color 0.2s ease, color 0.2s ease;
+
+  @include focus-ring;
+
+  &:hover,
+  &--filter-active {
+    background-color: $color-bg-dark;
+    color: $color-text-on-dark;
+  }
+
+  &--filter {
+    min-width: 0;
+    flex: 1 1 calc(20% - 4px);
+    min-height: 20px;
+    padding: 4px 6px;
+    font-size: 7px;
+    letter-spacing: 0.04em;
+
+    @include respond-between(tablet, desktop) {
+      flex: 1 1 auto;
+      min-width: 0;
+      max-width: none;
+      min-height: 40px;
+      padding: 12px 14px;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+    }
+
+    @include respond-min(desktop) {
+      flex: 0 1 auto;
+      min-width: 140px;
+      padding: 14px 20px;
+      font-size: 12px;
+    }
+  }
+}

@@ -1,0 +1,10 @@
+@use "../abstracts/variables" as *;
+
+body {
+  font-family: $font-family-sans;
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+  color: $color-text-on-light;
+  background-color: $color-bg-page;
+  -webkit-font-smoothing: antialiased;
+}

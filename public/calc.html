@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Калькулятор стоимости отдыха — Lakewood Lodge">
+  <title>Калькулятор — Lakewood Lodge</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="calc.js" defer></script>
+</head>
+<body class="page-calc">
+  <input class="nav-toggle" type="checkbox" id="nav-toggle" aria-hidden="true">
+
+  <header class="header">
+    <div class="header__inner">
+      <a class="header__logo" href="index.html#hero" aria-label="Lakewood Lodge — на главную">
+        <img class="header__logo-img" src="assets/svg/logo.svg" width="44" height="44" alt="">
+      </a>
+
+      <label class="header__burger" for="nav-toggle">
+        <span class="header__burger-line" aria-hidden="true"></span>
+        <span class="header__burger-line" aria-hidden="true"></span>
+        <span class="header__burger-line" aria-hidden="true"></span>
+        <span class="visually-hidden">Открыть меню</span>
+      </label>
+
+      <nav class="header__nav" aria-label="Основная навигация">
+        <ul class="header__menu">
+          <li class="header__item"><a class="header__link" href="index.html#hotel">Отель</a></li>
+          <li class="header__item"><a class="header__link" href="index.html#spa">Спа</a></li>
+          <li class="header__item"><a class="header__link" href="index.html#services">Услуги</a></li>
+          <li class="header__item"><a class="header__link" href="index.html#leisure">Досуг</a></li>
+          <li class="header__item"><a class="header__link" href="index.html#about">О нас</a></li>
+          <li class="header__item"><a class="header__link header__link--current" href="calc.html" aria-current="page">Калькулятор</a></li>
+          <li class="header__item"><a class="header__link" href="index.html#contacts">Контакты</a></li>
+        </ul>
+        <div class="header__drawer-logo">
+          <img class="header__drawer-logo-img" src="assets/svg/logo.svg" width="160" height="160" alt="Lakewood Lodge">
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <label class="nav-backdrop" for="nav-toggle">
+    <span class="visually-hidden">Закрыть меню</span>
+  </label>
+
+  <main class="calc-page">
+    <section class="section section--light" aria-labelledby="calc-title">
+      <div class="container">
+        <h1 class="section-title" id="calc-title">Калькулятор стоимости отдыха</h1>
+
+        <div class="calculator">
+          <p class="calculator__intro">
+            Стоимость пересчитывается сразу при изменении любого параметра. Цены пакетов соответствуют тарифам на главной странице.
+          </p>
+
+          <form class="calculator__form" id="calculator-form" novalidate>
+            <fieldset class="calculator__fieldset">
+              <legend class="calculator__legend">Тип расчёта</legend>
+              <div class="calculator__radios">
+                <label class="calculator__radio">
+                  <input type="radio" name="mode" value="room" checked>
+                  <span>Проживание в номере (за ночь)</span>
+                </label>
+                <label class="calculator__radio">
+                  <input type="radio" name="mode" value="package">
+                  <span>Пакет ALL INCLUSIVE</span>
+                </label>
+              </div>
+            </fieldset>
+
+            <fieldset class="calculator__fieldset" id="calc-package-field" hidden>
+              <legend class="calculator__legend">Пакет</legend>
+              <div class="calculator__field">
+                <label class="calculator__label" for="calc-package">Выберите пакет</label>
+                <select class="calculator__select" id="calc-package" name="package">
+                  <option value="restore">Restore — 250 руб. (2 персоны)</option>
+                  <option value="morning">Morning drive — 335 руб. (2 персоны)</option>
+                  <option value="active">Active Recovery — 175 руб. (1 персона)</option>
+                </select>
+              </div>
+            </fieldset>
+
+            <div class="calculator__row">
+              <fieldset class="calculator__fieldset" id="calc-nights-field">
+                <legend class="calculator__legend">Проживание</legend>
+                <div class="calculator__field">
+                  <label class="calculator__label" for="calc-nights">Количество ночей</label>
+                  <input
+                    class="calculator__input"
+                    type="number"
+                    id="calc-nights"
+                    name="nights"
+                    min="1"
+                    max="30"
+                    value="2"
+                    required
+                  >
+                </div>
+              </fieldset>
+
+              <fieldset class="calculator__fieldset">
+                <legend class="calculator__legend">Гости</legend>
+                <div class="calculator__field">
+                  <label class="calculator__label" for="calc-guests">Количество гостей</label>
+                  <input
+                    class="calculator__input"
+                    type="number"
+                    id="calc-guests"
+                    name="guests"
+                    min="1"
+                    max="10"
+                    value="2"
+                    required
+                  >
+                </div>
+              </fieldset>
+            </div>
+
+            <fieldset class="calculator__fieldset">
+              <legend class="calculator__legend">Дополнительные услуги</legend>
+              <div class="calculator__checks">
+                <label class="calculator__check">
+                  <input type="checkbox" id="extra-spa" name="extra-spa">
+                  <span>Спа (15 руб. / чел. / час)</span>
+                </label>
+                <div class="calculator__field" id="calc-spa-hours-field" hidden>
+                  <label class="calculator__label" for="calc-spa-hours">Часов в SPA</label>
+                  <input
+                    class="calculator__input"
+                    type="number"
+                    id="calc-spa-hours"
+                    name="spa-hours"
+                    min="1"
+                    max="8"
+                    value="3"
+                  >
+                </div>
+                <label class="calculator__check">
+                  <input type="checkbox" id="extra-restaurant" name="extra-restaurant">
+                  <span>Ресторан (35 руб. / гость)</span>
+                </label>
+                <label class="calculator__check">
+                  <input type="checkbox" id="extra-quad" name="extra-quad">
+                  <span>Квадроциклы (55 руб. / гость)</span>
+                </label>
+                <label class="calculator__check">
+                  <input type="checkbox" id="extra-canoe" name="extra-canoe">
+                  <span>Каноэ (45 руб. / гость)</span>
+                </label>
+                <label class="calculator__check">
+                  <input type="checkbox" id="extra-bike" name="extra-bike">
+                  <span>Веломаршрут (30 руб. / гость)</span>
+                </label>
+              </div>
+            </fieldset>
+
+            <div class="calculator__result" aria-live="polite" aria-atomic="true">
+              <p class="calculator__total-label">Итоговая стоимость</p>
+              <p class="calculator__total" id="calc-total">0 руб.</p>
+              <ul class="calculator__breakdown" id="calc-breakdown"></ul>
+            </div>
+          </form>
+
+          <a class="calculator__back" href="index.html">На главную</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="contacts">
+    <div class="container">
+      <ul class="footer__contacts">
+        <li>Viktar Tsybulskas</li>
+        <li>г. Брест, ул. Рокоссовского, д. 3</li>
+        <li><a class="footer__link" href="tel:+375333105838">+375337777777</a></li>
+        <li>
+          GitHub:
+          <a class="footer__link" href="https://github.com/v1tyokk" target="_blank" rel="noopener noreferrer">https://github.com/v1tyokkk</a>
+        </li>
+        <li>
+          Figma:
+          <a class="footer__link" href="mistervictor7777@gmail.com">mistervictor7777@gmail.com</a>
+        </li>
+      </ul>
+      <img class="footer__logo" src="assets/svg/logo.svg" width="120" height="120" alt="Lakewood Lodge">
+    </div>
+  </footer>
+</body>
+</html>

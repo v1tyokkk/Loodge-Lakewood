@@ -1,0 +1,26 @@
+// Main entry — порядок импортов по 7-1
+
+@use "sass/abstracts/variables";
+@use "sass/abstracts/functions";
+@use "sass/abstracts/mixins";
+@use "sass/abstracts/placeholders";
+
+@use "sass/base/reset";
+@use "sass/base/typography";
+@use "sass/base/utilities";
+
+@use "sass/layout/container";
+@use "sass/layout/header";
+@use "sass/layout/footer";
+
+@use "sass/components/button";
+@use "sass/components/hero";
+@use "sass/components/service-card";
+@use "sass/components/tariff";
+@use "sass/components/gallery";
+@use "sass/components/video-block";
+@use "sass/components/contact-banner";
+@use "sass/components/calculator";
+
+@use "sass/pages/home";
+@use "sass/pages/calc";

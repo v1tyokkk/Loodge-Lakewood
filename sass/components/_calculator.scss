@@ -1,0 +1,197 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+@use "../abstracts/placeholders" as *;
+
+.calculator {
+  display: grid;
+  gap: $space-lg;
+  max-width: 720px;
+  margin-inline: auto;
+
+  @include respond-min(tablet) {
+    gap: $space-xl;
+  }
+
+  &__intro {
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.55;
+    text-align: center;
+    color: $color-text-muted-light;
+  }
+
+  &__form {
+    display: grid;
+    gap: $space-lg;
+    padding: $space-lg;
+    background-color: $color-bg-light;
+
+    @include respond-min(tablet) {
+      padding: $space-xl;
+      gap: $space-xl;
+    }
+  }
+
+  &__fieldset {
+    margin: 0;
+    padding: 0;
+    border: none;
+
+    &--hidden {
+      display: none;
+    }
+  }
+
+  &__legend {
+    margin-bottom: $space-md;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: $color-text-on-light;
+  }
+
+  &__row {
+    display: grid;
+    gap: $space-md;
+
+    @include respond-min(tablet) {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  &__field {
+    display: grid;
+    gap: $space-xs;
+  }
+
+  &__label {
+    font-size: 12px;
+    font-weight: 500;
+    color: $color-text-on-light;
+  }
+
+  &__input,
+  &__select {
+    width: 100%;
+    min-height: 44px;
+    padding: 10px 14px;
+    border: 1px solid rgba($color-text-on-light, 0.2);
+    background-color: $color-bg-page;
+    font-size: 14px;
+    color: $color-text-on-light;
+
+    &:focus {
+      outline: none;
+      border-color: $color-logo-green;
+      box-shadow: 0 0 0 2px rgba($color-logo-green, 0.15);
+    }
+  }
+
+  &__radios {
+    display: grid;
+    gap: $space-sm;
+  }
+
+  &__radio {
+    display: flex;
+    align-items: flex-start;
+    gap: $space-sm;
+    font-size: 14px;
+    line-height: 1.4;
+    color: $color-text-on-light;
+    cursor: pointer;
+
+    input {
+      flex-shrink: 0;
+      width: 18px;
+      height: 18px;
+      margin-top: 2px;
+      accent-color: $color-logo-green;
+    }
+  }
+
+  &__checks {
+    display: grid;
+    gap: $space-sm;
+  }
+
+  &__check {
+    display: flex;
+    align-items: center;
+    gap: $space-sm;
+    font-size: 14px;
+    color: $color-text-on-light;
+    cursor: pointer;
+
+    input {
+      width: 18px;
+      height: 18px;
+      accent-color: $color-logo-green;
+    }
+  }
+
+  &__result {
+    display: grid;
+    gap: $space-md;
+    padding: $space-lg;
+    background-color: $color-bg-dark;
+    color: $color-text-on-dark;
+    text-align: center;
+  }
+
+  &__total-label {
+    margin: 0;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: $color-text-muted-dark;
+  }
+
+  &__total {
+    margin: 0;
+    font-family: $font-family-serif;
+    font-size: 32px;
+    line-height: 1.2;
+
+    @include respond-min(tablet) {
+      font-size: 40px;
+    }
+  }
+
+  &__breakdown {
+    display: grid;
+    gap: 4px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 12px;
+    line-height: 1.5;
+    color: $color-text-muted-dark;
+    text-align: left;
+  }
+
+  &__back {
+    @extend %btn-reset;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 12px 24px;
+    margin-inline: auto;
+    background-color: $color-bg-card;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: $color-text-on-dark;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background-color: $color-bg-dark;
+    }
+
+    @include focus-ring;
+  }
+}

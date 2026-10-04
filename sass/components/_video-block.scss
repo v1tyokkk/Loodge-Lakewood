@@ -1,0 +1,75 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+@use "../abstracts/placeholders" as *;
+
+.video-block {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background-color: $color-bg-card;
+
+  @include respond-min(desktop) {
+    aspect-ratio: 1024 / 420;
+  }
+
+  &__toggle {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+  }
+
+  &__video,
+  &__poster {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__video {
+    display: block;
+  }
+
+  &__overlay {
+    @include flex-center;
+    position: absolute;
+    inset: 0;
+    cursor: pointer;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+  }
+
+  &__toggle:checked ~ &__overlay {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  &__play {
+    @include flex-center;
+    position: absolute;
+    margin: auto;
+    width: 64px;
+    height: 64px;
+    border: 2px solid $color-text-on-light;
+    border-radius: 50%;
+    background-color: transparent;
+    transition: transform 0.2s ease;
+
+    @include focus-ring;
+
+    .video-block__overlay:hover & {
+      transform: scale(1.05);
+    }
+
+    &::after {
+      content: "";
+      margin-left: 4px;
+      border-top: 9px solid transparent;
+      border-bottom: 9px solid transparent;
+      border-left: 14px solid $color-text-on-light;
+    }
+  }
+}
